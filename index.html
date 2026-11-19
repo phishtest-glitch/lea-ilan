@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Mariage – Léa & Ilan</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Great+Vibes&family=Frank+Ruhl+Libre:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{--bg:#fffafa;--bg2:#fbeff0;--rose:#c9868f;--rose-d:#9c5560;--rose-l:#f3d9dc;--text:#4a3236;--soft:#8a6d72;--white:#fff;--nav:#fff}
@@ -54,6 +54,7 @@ p strong{display:block;color:var(--text);font-weight:600}
 .fam .r{text-align:right}.fam .l{text-align:left}.fam .f{grid-column:1/-1;text-align:center}
 .cn{display:flex;align-items:center;gap:14px;justify-content:center;flex-wrap:wrap}
 .big{font-family:'Great Vibes',cursive;font-size:2.7rem;color:var(--rose-d)}
+.he{font-family:'Frank Ruhl Libre','David','Times New Roman',serif;font-size:2.1rem;color:var(--rose-d);direction:rtl;letter-spacing:.05em;line-height:1.2}
 .btns{display:flex;flex-direction:column;gap:10px;width:100%;max-width:280px}
 .btns .btn{padding:13px 22px;font-size:.74rem}
 form{width:100%;display:flex;flex-direction:column;gap:14px}
@@ -110,7 +111,9 @@ footer .sc{font-size:1.8rem}
   <p style="font-size:2rem;font-style:italic;color:var(--text)">« Oui »</p>
   <div class="div"></div>
   <p><strong>Le Jeudi 24 Juin 2027<br>à 14h00</strong>à la Mairie du 20<sup>e</sup> arrondissement<br>6 Place Gambetta,<br>75020 Paris</p>
-  <div class="btns"><a class="btn" target="_blank" href="https://maps.google.com/?q=6+Place+Gambetta+75020+Paris">Itinéraire Google Maps</a></div>
+  <div class="div"></div>
+  <p style="font-style:italic">Un <strong style="display:inline">after mairie</strong> aura lieu à l’issue de la cérémonie.<br>Lieu communiqué prochainement.</p>
+  <div class="btns"><a class="btn" target="_blank" href="https://waze.com/ul?q=6%20Place%20Gambetta%2075020%20Paris&navigate=yes">Itinéraire Waze</a></div>
 </div></section>
 
 <section id="houppa"><div class="in">
@@ -121,12 +124,13 @@ footer .sc{font-size:1.8rem}
     <p class="f">ont la joie de vous faire part du mariage de leur fille, petite-fille, fils et petit-fils</p>
   </div>
   <div class="cn"><span class="big">Léa</span><span class="sc">&amp;</span><span class="big">Ilan</span></div>
+  <div class="he">לאה ואילן</div>
   <div class="div"></div>
   <p>et seraient honorés de votre présence à la cérémonie religieuse qui aura lieu</p>
   <p><strong>Le Lundi 28 Juin 2027<br>à 18h00</strong>Le White<br>68 rue Louis Ampère,<br>93330 Neuilly-sur-Marne</p>
   <p style="font-style:italic;font-size:.95rem">La cérémonie sera suivie du buffet et de la soirée</p>
   <p style="font-style:italic;font-size:.88rem">En ce jour si particulier, nous avons une pensée émue et remplie de tendresse pour tous nos êtres chers qui ne sont plus parmi nous. Qu’ils nous protègent et bénissent notre union.</p>
-  <div class="btns"><a class="btn" target="_blank" href="https://maps.google.com/?q=Le+White+68+rue+Louis+Ampère+93330+Neuilly-sur-Marne">Itinéraire Google Maps</a></div>
+  <div class="btns"><a class="btn" target="_blank" href="https://waze.com/ul?q=68%20rue%20Louis%20Amp%C3%A8re%2093330%20Neuilly-sur-Marne&navigate=yes">Itinéraire Waze</a></div>
 </div></section>
 
 <section id="reponse"><div class="in">
@@ -140,6 +144,8 @@ footer .sc{font-size:1.8rem}
       <div class="cw" id="w-mairie">Nombre de personnes : <select id="n-mairie"></select></div></div>
     <div class="ev"><div class="eh"><span class="et">La Houppa &amp; Soirée</span><div class="rr"><label><input type="radio" name="r-houppa" value="oui" onchange="tc('houppa',1)">Oui</label><label><input type="radio" name="r-houppa" value="non" onchange="tc('houppa',0)">Non</label></div></div>
       <div class="cw" id="w-houppa">Nombre de personnes : <select id="n-houppa"></select></div></div>
+    <div class="ev"><div class="eh"><span class="et">Le Vin d’honneur</span><div class="rr"><label><input type="radio" name="r-vin" value="oui" onchange="tc('vin',1)">Oui</label><label><input type="radio" name="r-vin" value="non" onchange="tc('vin',0)">Non</label></div></div>
+      <div class="cw" id="w-vin">Nombre de personnes : <select id="n-vin"></select></div></div>
     <textarea id="msg" rows="3" placeholder="Message pour les mariés"></textarea>
     <button class="btn" id="sb" style="align-self:center" type="submit">Répondre</button>
   </form>
@@ -172,14 +178,14 @@ function tmenu(){document.getElementById('mt').classList.toggle('open');document
 function cm_(){document.getElementById('mt').classList.remove('open');document.getElementById('dd').classList.remove('open')}
 const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('v')}),{threshold:.1});
 document.querySelectorAll('.in').forEach(e=>io.observe(e));
-['mairie','houppa'].forEach(k=>{const s=document.getElementById('n-'+k);for(let i=1;i<=8;i++)s.add(new Option(i,i))});
+['mairie','houppa','vin'].forEach(k=>{const s=document.getElementById('n-'+k);for(let i=1;i<=8;i++)s.add(new Option(i,i))});
 function tc(k,v){document.getElementById('w-'+k).classList.toggle('s',!!v)}
 function gc(k){const c=document.querySelector('input[name="r-'+k+'"]:checked');return c&&c.value==='oui'?document.getElementById('n-'+k).value:'0'}
 async function send(e){
   e.preventDefault();
   const b=document.getElementById('sb');b.disabled=true;b.textContent='…';
   document.getElementById('err').style.display='none';
-  const p={nom:document.getElementById('nom').value.trim(),prenom:document.getElementById('prenom').value.trim(),mairie:gc('mairie'),houppa:gc('houppa'),message:document.getElementById('msg').value.trim(),date:new Date().toLocaleString('fr-FR')};
+  const p={nom:document.getElementById('nom').value.trim(),prenom:document.getElementById('prenom').value.trim(),mairie:gc('mairie'),houppa:gc('houppa'),vin:gc('vin'),message:document.getElementById('msg').value.trim(),date:new Date().toLocaleString('fr-FR')};
   try{
     if(!SCRIPT_URL)throw 0;
     await fetch(SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(p)});
