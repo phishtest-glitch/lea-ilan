@@ -136,7 +136,7 @@ footer{text-align:center;padding:10px 0 70px;font-family:'Great Vibes',cursive;f
 
 <script>
 const MUSIC_SRC='musique678.mp3'; // à remplacer par le lien/fichier de la musique
-const SCRIPT_URL=''; // URL Google Apps Script (…/exec)
+const SCRIPT_URL='https://script.google.com/macros/s/AKfycbwfdImTVOekU4EJbaxlN1Zj9EyEtfV2j4nmszFyJLmHaRMveZVtaO52Zi5VLuLedyISXg/exec'; // URL Google Apps Script (…/exec)
 const T=new Date('2027-06-28T18:00:00+02:00');
 function upd(){let d=T-new Date();if(d<0)d=0;const s=(i,v)=>document.getElementById(i).textContent=v;
 s('cd',Math.floor(d/864e5));s('ch',Math.floor(d%864e5/36e5));s('cm',Math.floor(d%36e5/6e4));s('cs',Math.floor(d%6e4/1e3))}
